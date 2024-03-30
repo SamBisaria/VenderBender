@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://dhjk7o4bcbu6b"]
+[gd_scene load_steps=19 format=3 uid="uid://dhjk7o4bcbu6b"]
 
 [ext_resource type="Texture2D" uid="uid://bp77ubst64sy2" path="res://art/tilesets/Outside_A1.png" id="1_m7rqj"]
 [ext_resource type="Texture2D" uid="uid://8frvv60wabnj" path="res://art/tilesets/Outside_A2.png" id="2_vv2v2"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://d2nu830ln87rd" path="res://art/tilesets/Outside_B.png" id="6_wpoir"]
 [ext_resource type="Texture2D" uid="uid://dwifkefk3h8md" path="res://art/tilesets/Outside_C.png" id="7_ojnay"]
 [ext_resource type="Texture2D" uid="uid://bnfppkixpgmvn" path="res://art/tilesets/Outside_D.png" id="8_0yyvy"]
+[ext_resource type="Script" path="res://scripts/camera.gd" id="9_aj83g"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_l4krs"]
 texture = ExtResource("1_m7rqj")
@@ -13059,3 +13060,6 @@ sources/7 = SubResource("TileSetAtlasSource_qnqpj")
 tile_set = SubResource("TileSet_k2mae")
 format = 2
 layer_0/tile_data = PackedInt32Array(-131076, 4, 42, -65540, 4, 43, -4, 4, 44, 65532, 4, 45, 131068, 4, 46, 196604, 4, 47, -131075, 65540, 42, -65539, 65540, 43, -3, 65540, 44, 65533, 65540, 45, 131069, 65540, 46, 196605, 65540, 47, -131074, 131076, 42, -65538, 131076, 43, -2, 131076, 44, 65534, 131076, 45, 131070, 131076, 46, 196606, 131076, 47, -131073, 196612, 42, -65537, 196612, 43, -1, 196612, 44, 65535, 196612, 45, 131071, 196612, 46, 196607, 196612, 47, -196608, 262148, 42, -131072, 262148, 43, -65536, 262148, 44, 0, 262148, 45, 65536, 262148, 46, 131072, 262148, 47, -196607, 327684, 42, -131071, 327684, 43, -65535, 327684, 44, 1, 327684, 45, 65537, 327684, 46, 131073, 327684, 47, -196606, 393220, 42, -131070, 393220, 43, -65534, 393220, 44, 2, 393220, 45, 65538, 393220, 46, 131074, 393220, 47, -196605, 458756, 42, -131069, 458756, 43, -65533, 458756, 44, 3, 458756, 45, 65539, 458756, 46, 131075, 458756, 47, -196604, 524292, 42, -131068, 524292, 43, -65532, 524292, 44, 4, 524292, 45, 65540, 524292, 46, 131076, 524292, 47)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+script = ExtResource("9_aj83g")
