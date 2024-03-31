@@ -9,8 +9,11 @@ var target_zoom := Vector2(1.0, 1.0)
 
 func _input(event):
 	if event is InputEventMouseButton:
+		var direction := get_global_mouse_position() - global_position
 		if event.button_index == MOUSE_BUTTON_WHEEL_UP:
 			target_zoom += Vector2(zoom_speed, zoom_speed)
+			if target_zoom.x < max_zoom and target_zoom.y < max_zoom:
+				global_position += direction / 15 * zoom_speed
 		elif event.button_index == MOUSE_BUTTON_WHEEL_DOWN:
 			target_zoom -= Vector2(zoom_speed, zoom_speed)
 		
