@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://dhjk7o4bcbu6b"]
+[gd_scene load_steps=20 format=3 uid="uid://dhjk7o4bcbu6b"]
 
 [ext_resource type="Texture2D" uid="uid://bp77ubst64sy2" path="res://art/tilesets/Outside_A1.png" id="1_m7rqj"]
 [ext_resource type="Texture2D" uid="uid://8frvv60wabnj" path="res://art/tilesets/Outside_A2.png" id="2_vv2v2"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://dwifkefk3h8md" path="res://art/tilesets/Outside_C.png" id="7_ojnay"]
 [ext_resource type="Texture2D" uid="uid://bnfppkixpgmvn" path="res://art/tilesets/Outside_D.png" id="8_0yyvy"]
 [ext_resource type="Script" path="res://scripts/camera.gd" id="9_aj83g"]
+[ext_resource type="AudioStream" uid="uid://bqplu6bfo8dvw" path="res://art/audio/titleScreen.wav" id="10_pc1bc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_l4krs"]
 texture = ExtResource("1_m7rqj")
@@ -13063,3 +13064,11 @@ layer_0/tile_data = PackedInt32Array(-131076, 4, 42, -65540, 4, 43, -4, 4, 44, 6
 
 [node name="Camera2D" type="Camera2D" parent="."]
 script = ExtResource("9_aj83g")
+
+[node name="BackgroundAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_pc1bc")
+autoplay = true
+
+[node name="ProximityAudio" type="AudioStreamPlayer2D" parent="."]
+autoplay = true
+max_distance = 1000.0
