@@ -1,11 +1,7 @@
 extends Camera2D
 
 var PanSpeedKey: int = 8
-
-# Zoom speed
 var zoom_speed := 0.12
-
-# Minimum and maximum zoom levels
 var min_zoom := 0.2
 var max_zoom := 2.0
 
@@ -20,6 +16,7 @@ func _input(event):
 			clamp(zoom.y, min_zoom, max_zoom)
 		)
 
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta) -> void:
 	if Input.is_action_pressed("ui_up"):
@@ -30,4 +27,3 @@ func _process(delta) -> void:
 		position.x -= PanSpeedKey
 	if Input.is_action_pressed("ui_right"):
 		position.x += PanSpeedKey
-
