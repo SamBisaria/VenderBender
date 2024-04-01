@@ -36,7 +36,7 @@ func _input(event):
 		local_mouse_pos = get_local_mouse_position()
 		if (rect.has_point(local_mouse_pos)):
 			# print("You selected:", self.name)
-			create_window(self.name, ITEMS, event.position)
+			create_window(get_parent().name, ITEMS, event.position)
 
 
 func create_window(title: String, items: Array[Dictionary], position: Vector2i) -> void:

@@ -20,5 +20,8 @@ func price(current: String, pressed: String) -> String:
 	elif pressed == "backspace":
 		return current.substr(0, len(current) - 1)
 	
+	if (len(current) > 2 and current[-3] == "."):
+		return output
+	
 	output = output + pressed
 	return output

@@ -22,6 +22,7 @@ func create_buttons(button_count):
 	for i in range(button_count):
 		item_container = vending_button.instantiate()
 		button = item_container.find_child("TextureButton")
+		button.index = i
 		button.texture_normal = load(items[i].imgSrc)
 		fill_bar = item_container.find_child("ProgressBar")
 		fill_bar.set_value(items[i].stock)
