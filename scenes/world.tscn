@@ -1,4 +1,4 @@
-[gd_scene load_steps=61 format=3 uid="uid://dhjk7o4bcbu6b"]
+[gd_scene load_steps=62 format=3 uid="uid://dhjk7o4bcbu6b"]
 
 [ext_resource type="Texture2D" uid="uid://bp77ubst64sy2" path="res://art/tilesets/Outside_A1.png" id="1_m7rqj"]
 [ext_resource type="Texture2D" uid="uid://8frvv60wabnj" path="res://art/tilesets/Outside_A2.png" id="2_vv2v2"]
@@ -17,6 +17,7 @@
 [ext_resource type="Script" path="res://scripts/robot.gd" id="12_egxta"]
 [ext_resource type="AudioStream" uid="uid://mia3neegswiy" path="res://art/audio/vendingAmbient.wav" id="14_07vxu"]
 [ext_resource type="Texture2D" uid="uid://tf25iapt1caf" path="res://art/characters/vending_machine_1.png" id="15_uwmjv"]
+[ext_resource type="Script" path="res://scripts/vendingmachine.gd" id="16_c83cb"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_l4krs"]
 texture = ExtResource("1_m7rqj")
@@ -15114,6 +15115,9 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ymrum"]
+size = Vector2(32, 69)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_uofwl"]
 atlas = ExtResource("12_7wlnb")
 region = Rect2(528, 96, 48, 96)
@@ -15289,6 +15293,9 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l46ri"]
+size = Vector2(52, 100)
+
 [node name="world" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -15307,17 +15314,20 @@ script = ExtResource("9_aj83g")
 
 [node name="BackgroundAudio" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("10_pc1bc")
-autoplay = true
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+[node name="NPC" type="CharacterBody2D" parent="."]
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="NPC"]
 position = Vector2(170, -139)
 scale = Vector2(3.75, 3.75)
 sprite_frames = SubResource("SpriteFrames_yhfdl")
 animation = &"idle"
 frame = 7
 frame_progress = 0.922486
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NPC"]
+position = Vector2(171, -140.5)
+shape = SubResource("RectangleShape2D_ymrum")
 
 [node name="SecBot" type="CharacterBody2D" parent="."]
 script = ExtResource("12_egxta")
@@ -15336,17 +15346,20 @@ position = Vector2(-69.5, 11.5)
 shape = SubResource("RectangleShape2D_i5n3d")
 disabled = true
 
-[node name="Vending Machine" type="CharacterBody2D" parent="."]
+[node name="Sugar Rush" type="CharacterBody2D" parent="."]
 position = Vector2(5, -130)
 
-[node name="ProximityAudio" type="AudioStreamPlayer2D" parent="Vending Machine"]
+[node name="ProximityAudio" type="AudioStreamPlayer2D" parent="Sugar Rush"]
 stream = ExtResource("14_07vxu")
 autoplay = true
 max_distance = 1000.0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Vending Machine"]
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Vending Machine"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Sugar Rush"]
 position = Vector2(2, -27)
 scale = Vector2(0.427419, 0.529793)
 sprite_frames = SubResource("SpriteFrames_owb03")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sugar Rush"]
+position = Vector2(2, -27)
+shape = SubResource("RectangleShape2D_l46ri")
+script = ExtResource("16_c83cb")

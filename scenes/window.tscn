@@ -1,0 +1,203 @@
+[gd_scene load_steps=3 format=3 uid="uid://5m6i1rg61cv2"]
+
+[ext_resource type="Script" path="res://scripts/window.gd" id="1_t2ow3"]
+[ext_resource type="Script" path="res://scripts/numpadbutton.gd" id="2_vlwxc"]
+
+[node name="Window" type="Window"]
+title = "Test Window"
+size = Vector2i(191, 356)
+wrap_controls = true
+unresizable = true
+script = ExtResource("1_t2ow3")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HSplitContainer" type="HSplitContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer/HSplitContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/HSplitContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 0
+
+[node name="VendingMachineItems" type="GridContainer" parent="VBoxContainer/HSplitContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+columns = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HSplitContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/HSplitContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_bottom = 5
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer/HSplitContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="CustomerWants" type="VBoxContainer" parent="VBoxContainer/HSplitContainer/VBoxContainer/MarginContainer/PanelContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/HSplitContainer/VBoxContainer/MarginContainer/PanelContainer/CustomerWants"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 5
+
+[node name="Label" type="Label" parent="VBoxContainer/HSplitContainer/VBoxContainer/MarginContainer/PanelContainer/CustomerWants/MarginContainer"]
+layout_mode = 2
+text = "Customer Wants"
+horizontal_alignment = 1
+
+[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer/HSplitContainer/VBoxContainer/MarginContainer/PanelContainer/CustomerWants"]
+layout_mode = 2
+theme_override_constants/margin_bottom = 5
+
+[node name="CustomerWants" type="TextureRect" parent="VBoxContainer/HSplitContainer/VBoxContainer/MarginContainer/PanelContainer/CustomerWants/MarginContainer2"]
+custom_minimum_size = Vector2(72, 64)
+layout_mode = 2
+expand_mode = 2
+stretch_mode = 5
+
+[node name="PanelContainer2" type="PanelContainer" parent="VBoxContainer/HSplitContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+
+[node name="ChargePrice" type="VBoxContainer" parent="VBoxContainer/HSplitContainer/VBoxContainer/PanelContainer2"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/HSplitContainer/VBoxContainer/PanelContainer2/ChargePrice"]
+layout_mode = 2
+text = "Charge Price
+"
+horizontal_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/HSplitContainer/VBoxContainer/PanelContainer2/ChargePrice"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_right = 10
+
+[node name="ChargePriceInput" type="TextEdit" parent="VBoxContainer/HSplitContainer/VBoxContainer/PanelContainer2/ChargePrice/MarginContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+placeholder_text = "$1.00"
+editable = false
+context_menu_enabled = false
+selecting_enabled = false
+drag_and_drop_selection_enabled = false
+virtual_keyboard_enabled = false
+middle_mouse_paste_enabled = false
+
+[node name="CenterContainer" type="CenterContainer" parent="VBoxContainer/HSplitContainer/VBoxContainer/PanelContainer2/ChargePrice"]
+layout_mode = 2
+
+[node name="GridContainer" type="GridContainer" parent="VBoxContainer/HSplitContainer/VBoxContainer/PanelContainer2/ChargePrice/CenterContainer"]
+layout_mode = 2
+columns = 3
+
+[node name="1" type="Button" parent="VBoxContainer/HSplitContainer/VBoxContainer/PanelContainer2/ChargePrice/CenterContainer/GridContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+script = ExtResource("2_vlwxc")
+
+[node name="2" type="Button" parent="VBoxContainer/HSplitContainer/VBoxContainer/PanelContainer2/ChargePrice/CenterContainer/GridContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+script = ExtResource("2_vlwxc")
+
+[node name="3" type="Button" parent="VBoxContainer/HSplitContainer/VBoxContainer/PanelContainer2/ChargePrice/CenterContainer/GridContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+script = ExtResource("2_vlwxc")
+
+[node name="4" type="Button" parent="VBoxContainer/HSplitContainer/VBoxContainer/PanelContainer2/ChargePrice/CenterContainer/GridContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+script = ExtResource("2_vlwxc")
+
+[node name="5" type="Button" parent="VBoxContainer/HSplitContainer/VBoxContainer/PanelContainer2/ChargePrice/CenterContainer/GridContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+script = ExtResource("2_vlwxc")
+
+[node name="6" type="Button" parent="VBoxContainer/HSplitContainer/VBoxContainer/PanelContainer2/ChargePrice/CenterContainer/GridContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+script = ExtResource("2_vlwxc")
+
+[node name="7" type="Button" parent="VBoxContainer/HSplitContainer/VBoxContainer/PanelContainer2/ChargePrice/CenterContainer/GridContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+script = ExtResource("2_vlwxc")
+
+[node name="8" type="Button" parent="VBoxContainer/HSplitContainer/VBoxContainer/PanelContainer2/ChargePrice/CenterContainer/GridContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+script = ExtResource("2_vlwxc")
+
+[node name="9" type="Button" parent="VBoxContainer/HSplitContainer/VBoxContainer/PanelContainer2/ChargePrice/CenterContainer/GridContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+script = ExtResource("2_vlwxc")
+
+[node name="0" type="Button" parent="VBoxContainer/HSplitContainer/VBoxContainer/PanelContainer2/ChargePrice/CenterContainer/GridContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+script = ExtResource("2_vlwxc")
+
+[node name="dot" type="Button" parent="VBoxContainer/HSplitContainer/VBoxContainer/PanelContainer2/ChargePrice/CenterContainer/GridContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+script = ExtResource("2_vlwxc")
+
+[node name="backspace" type="Button" parent="VBoxContainer/HSplitContainer/VBoxContainer/PanelContainer2/ChargePrice/CenterContainer/GridContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+script = ExtResource("2_vlwxc")
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 5
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="VBoxContainer/MarginContainer/PanelContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/MarginContainer/PanelContainer/CenterContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/MarginContainer/PanelContainer/CenterContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="Dispense" type="Button" parent="VBoxContainer/MarginContainer/PanelContainer/CenterContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+text = "Dispense"
+
+[node name="Do Nothing" type="Button" parent="VBoxContainer/MarginContainer/PanelContainer/CenterContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+text = "Do Nothing"
+
+[connection signal="close_requested" from="." to="." method="_on_close_requested"]
+[connection signal="pressed" from="VBoxContainer/HSplitContainer/VBoxContainer/PanelContainer2/ChargePrice/CenterContainer/GridContainer/1" to="VBoxContainer/HSplitContainer/VBoxContainer/PanelContainer2/ChargePrice/CenterContainer/GridContainer/1" method="_on_pressed"]
+[connection signal="pressed" from="VBoxContainer/HSplitContainer/VBoxContainer/PanelContainer2/ChargePrice/CenterContainer/GridContainer/2" to="VBoxContainer/HSplitContainer/VBoxContainer/PanelContainer2/ChargePrice/CenterContainer/GridContainer/2" method="_on_pressed"]
+[connection signal="pressed" from="VBoxContainer/HSplitContainer/VBoxContainer/PanelContainer2/ChargePrice/CenterContainer/GridContainer/3" to="VBoxContainer/HSplitContainer/VBoxContainer/PanelContainer2/ChargePrice/CenterContainer/GridContainer/3" method="_on_pressed"]
+[connection signal="pressed" from="VBoxContainer/HSplitContainer/VBoxContainer/PanelContainer2/ChargePrice/CenterContainer/GridContainer/4" to="VBoxContainer/HSplitContainer/VBoxContainer/PanelContainer2/ChargePrice/CenterContainer/GridContainer/4" method="_on_pressed"]
+[connection signal="pressed" from="VBoxContainer/HSplitContainer/VBoxContainer/PanelContainer2/ChargePrice/CenterContainer/GridContainer/5" to="VBoxContainer/HSplitContainer/VBoxContainer/PanelContainer2/ChargePrice/CenterContainer/GridContainer/5" method="_on_pressed"]
+[connection signal="pressed" from="VBoxContainer/HSplitContainer/VBoxContainer/PanelContainer2/ChargePrice/CenterContainer/GridContainer/6" to="VBoxContainer/HSplitContainer/VBoxContainer/PanelContainer2/ChargePrice/CenterContainer/GridContainer/6" method="_on_pressed"]
+[connection signal="pressed" from="VBoxContainer/HSplitContainer/VBoxContainer/PanelContainer2/ChargePrice/CenterContainer/GridContainer/7" to="VBoxContainer/HSplitContainer/VBoxContainer/PanelContainer2/ChargePrice/CenterContainer/GridContainer/7" method="_on_pressed"]
+[connection signal="pressed" from="VBoxContainer/HSplitContainer/VBoxContainer/PanelContainer2/ChargePrice/CenterContainer/GridContainer/8" to="VBoxContainer/HSplitContainer/VBoxContainer/PanelContainer2/ChargePrice/CenterContainer/GridContainer/8" method="_on_pressed"]
+[connection signal="pressed" from="VBoxContainer/HSplitContainer/VBoxContainer/PanelContainer2/ChargePrice/CenterContainer/GridContainer/9" to="VBoxContainer/HSplitContainer/VBoxContainer/PanelContainer2/ChargePrice/CenterContainer/GridContainer/9" method="_on_pressed"]
+[connection signal="pressed" from="VBoxContainer/HSplitContainer/VBoxContainer/PanelContainer2/ChargePrice/CenterContainer/GridContainer/0" to="VBoxContainer/HSplitContainer/VBoxContainer/PanelContainer2/ChargePrice/CenterContainer/GridContainer/0" method="_on_pressed"]
+[connection signal="pressed" from="VBoxContainer/HSplitContainer/VBoxContainer/PanelContainer2/ChargePrice/CenterContainer/GridContainer/dot" to="VBoxContainer/HSplitContainer/VBoxContainer/PanelContainer2/ChargePrice/CenterContainer/GridContainer/dot" method="_on_pressed"]
+[connection signal="pressed" from="VBoxContainer/HSplitContainer/VBoxContainer/PanelContainer2/ChargePrice/CenterContainer/GridContainer/backspace" to="VBoxContainer/HSplitContainer/VBoxContainer/PanelContainer2/ChargePrice/CenterContainer/GridContainer/backspace" method="_on_pressed"]
