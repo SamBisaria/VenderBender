@@ -1,0 +1,29 @@
+[gd_scene load_steps=2 format=3 uid="uid://dl1wkvubt0kie"]
+
+[ext_resource type="Script" path="res://scripts/vendingmachinebutton.gd" id="1_bhr1t"]
+
+[node name="VendingButton" type="VBoxContainer"]
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+layout_mode = 2
+
+[node name="TextureButton" type="TextureButton" parent="PanelContainer/VBoxContainer"]
+custom_minimum_size = Vector2(72, 64)
+layout_mode = 2
+ignore_texture_size = true
+stretch_mode = 5
+script = ExtResource("1_bhr1t")
+
+[node name="ProgressBar" type="ProgressBar" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+value = 12.0
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+text = "1.00"
+horizontal_alignment = 1
+
+[connection signal="pressed" from="PanelContainer/VBoxContainer/TextureButton" to="PanelContainer/VBoxContainer/TextureButton" method="_on_pressed"]
