@@ -1,8 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://cyklbdyatd3jf"]
+[gd_scene load_steps=8 format=3 uid="uid://co64ft6p3faj7"]
 
 [ext_resource type="Script" path="res://scripts/TitleScreen.gd" id="1_18sqv"]
 [ext_resource type="Texture2D" uid="uid://ddwhxrxcid2qa" path="res://art/titlescreen/signal-2024-03-30-180252_002.jpeg" id="2_1vrll"]
-[ext_resource type="AudioStream" uid="uid://q4ry8625j72r" path="res://art/audio/titleScreen.wav" id="2_87n66"]
+[ext_resource type="AudioStream" uid="uid://dl3la35e2ldow" path="res://art/audio/titleScreen.wav" id="2_87n66"]
 
 [sub_resource type="Theme" id="Theme_ebk8d"]
 default_font_size = 50

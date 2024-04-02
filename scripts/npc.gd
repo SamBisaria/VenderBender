@@ -88,7 +88,7 @@ func walk() -> void:
 
 # Makes the NPC wander after buying something
 func post_purchase():
-	ani_sprite.set_animation("idle_north")
+	ani_sprite.set_animation("idle_still_north")
 	state = NPC.State.WANDERING
 	nav_agent.target_position = position + Vector2(400, -20)
 	target_walk_timer.wait_time = randf_range(45, 60)

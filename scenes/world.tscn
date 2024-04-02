@@ -1,4 +1,4 @@
-[gd_scene load_steps=109 format=3 uid="uid://dhjk7o4bcbu6b"]
+[gd_scene load_steps=108 format=3 uid="uid://dhjk7o4bcbu6b"]
 
 [ext_resource type="Texture2D" uid="uid://bp77ubst64sy2" path="res://art/tilesets/Outside_A1.png" id="1_m7rqj"]
 [ext_resource type="Texture2D" uid="uid://8frvv60wabnj" path="res://art/tilesets/Outside_A2.png" id="2_vv2v2"]
@@ -12,7 +12,6 @@
 [ext_resource type="Texture2D" uid="uid://dwifkefk3h8md" path="res://art/tilesets/Outside_C.png" id="7_ojnay"]
 [ext_resource type="Texture2D" uid="uid://bnfppkixpgmvn" path="res://art/tilesets/Outside_D.png" id="8_0yyvy"]
 [ext_resource type="Script" path="res://scripts/camera.gd" id="9_aj83g"]
-[ext_resource type="AudioStream" uid="uid://dl3la35e2ldow" path="res://art/audio/titleScreen.wav" id="10_pc1bc"]
 [ext_resource type="Texture2D" uid="uid://d2aufdtu4tg6a" path="res://art/characters/Civilian1_Idle.png" id="11_ghkk8"]
 [ext_resource type="Texture2D" uid="uid://cay14npgmoe5j" path="res://art/tilesets/ChuHTa2.png" id="12_3h72y"]
 [ext_resource type="Texture2D" uid="uid://dflrhec1yccdy" path="res://art/characters/!Policedrone.png" id="12_7wlnb"]
@@ -60302,28 +60301,6 @@ layer_3/tile_data = PackedInt32Array(-983044, 786439, 7, -917508, 786439, 8, -85
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 navigation_polygon = SubResource("NavigationPolygon_lpf3i")
 
-[node name="Camera2D" type="Camera2D" parent="."]
-script = ExtResource("9_aj83g")
-
-[node name="PanelContainer" type="PanelContainer" parent="Camera2D"]
-offset_left = 1503.0
-offset_top = -596.0
-offset_right = 1634.0
-offset_bottom = -553.0
-script = ExtResource("15_xw4qs")
-
-[node name="MarginContainer" type="MarginContainer" parent="Camera2D/PanelContainer"]
-layout_mode = 2
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 10
-theme_override_constants/margin_bottom = 10
-
-[node name="Label" type="Label" parent="Camera2D/PanelContainer/MarginContainer"]
-layout_mode = 2
-text = "Balance: $1.00
-"
-
 [node name="BackgroundAudio" type="AudioStreamPlayer" parent="."]
 autoplay = true
 
@@ -60357,7 +60334,7 @@ script = ExtResource("13_xqf4k")
 position = Vector2(-0.375, 2.625)
 scale = Vector2(2.67788, 2.67788)
 sprite_frames = SubResource("SpriteFrames_yhfdl")
-animation = &"walk_east"
+animation = &"idle_still_north"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NPC1"]
 shape = SubResource("RectangleShape2D_ymrum")
@@ -60391,21 +60368,289 @@ disabled = true
 
 [node name="TextureRect2" type="TextureRect" parent="."]
 show_behind_parent = true
-offset_left = -22330.0
-offset_top = -12808.0
-offset_right = 21571.0
-offset_bottom = 12420.0
+offset_left = -21744.0
+offset_top = -12312.0
+offset_right = 22157.0
+offset_bottom = 12916.0
 texture = SubResource("GradientTexture2D_diteq")
 
-[node name="Vending Machine" type="CharacterBody2D" parent="."]
-position = Vector2(5, -130)
+[node name="Sugar Rush2" type="CharacterBody2D" parent="." groups=["vending_machines"]]
+position = Vector2(558, 222)
+script = ExtResource("16_c83cb")
 
-[node name="ProximityAudio" type="AudioStreamPlayer2D" parent="Vending Machine"]
+[node name="ProximityAudio" type="AudioStreamPlayer2D" parent="Sugar Rush2"]
+stream = ExtResource("14_07vxu")
 autoplay = true
 max_distance = 1000.0
 
-[connection signal="purchase" from="Sugar Rush" to="Camera2D/PanelContainer" method="_on_sugar_rush_purchase"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Sugar Rush2"]
+position = Vector2(2, -27)
+scale = Vector2(0.427419, 0.529793)
+sprite_frames = SubResource("SpriteFrames_owb03")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sugar Rush2"]
+position = Vector2(2, -27)
+shape = SubResource("RectangleShape2D_l46ri")
+
+[node name="ErrorProximityAudio" type="AudioStreamPlayer2D" parent="Sugar Rush2"]
+stream = ExtResource("20_ut4tp")
+max_distance = 1000.0
+
+[node name="Sugar Rush3" type="CharacterBody2D" parent="." groups=["vending_machines"]]
+position = Vector2(2272, 967)
+script = ExtResource("16_c83cb")
+
+[node name="ProximityAudio" type="AudioStreamPlayer2D" parent="Sugar Rush3"]
+stream = ExtResource("14_07vxu")
+autoplay = true
+max_distance = 1000.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Sugar Rush3"]
+position = Vector2(2, -27)
+scale = Vector2(0.427419, 0.529793)
+sprite_frames = SubResource("SpriteFrames_owb03")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sugar Rush3"]
+position = Vector2(2, -27)
+shape = SubResource("RectangleShape2D_l46ri")
+
+[node name="ErrorProximityAudio" type="AudioStreamPlayer2D" parent="Sugar Rush3"]
+stream = ExtResource("20_ut4tp")
+max_distance = 1000.0
+
+[node name="Sugar Rush4" type="CharacterBody2D" parent="." groups=["vending_machines"]]
+position = Vector2(1859, -40)
+script = ExtResource("16_c83cb")
+
+[node name="ProximityAudio" type="AudioStreamPlayer2D" parent="Sugar Rush4"]
+stream = ExtResource("14_07vxu")
+autoplay = true
+max_distance = 1000.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Sugar Rush4"]
+position = Vector2(2, -27)
+scale = Vector2(0.427419, 0.529793)
+sprite_frames = SubResource("SpriteFrames_owb03")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sugar Rush4"]
+position = Vector2(2, -27)
+shape = SubResource("RectangleShape2D_l46ri")
+
+[node name="ErrorProximityAudio" type="AudioStreamPlayer2D" parent="Sugar Rush4"]
+stream = ExtResource("20_ut4tp")
+max_distance = 1000.0
+
+[node name="Sugar Rush5" type="CharacterBody2D" parent="." groups=["vending_machines"]]
+position = Vector2(1152, 971)
+script = ExtResource("16_c83cb")
+
+[node name="ProximityAudio" type="AudioStreamPlayer2D" parent="Sugar Rush5"]
+stream = ExtResource("14_07vxu")
+autoplay = true
+max_distance = 1000.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Sugar Rush5"]
+position = Vector2(2, -27)
+scale = Vector2(0.427419, 0.529793)
+sprite_frames = SubResource("SpriteFrames_owb03")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sugar Rush5"]
+position = Vector2(2, -27)
+shape = SubResource("RectangleShape2D_l46ri")
+
+[node name="ErrorProximityAudio" type="AudioStreamPlayer2D" parent="Sugar Rush5"]
+stream = ExtResource("20_ut4tp")
+max_distance = 1000.0
+
+[node name="Camera2D" type="Camera2D" parent="."]
+script = ExtResource("9_aj83g")
+
+[node name="Control" type="Control" parent="Camera2D"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 1.0
+offset_top = -1.0
+offset_right = 41.0
+offset_bottom = 39.0
+
+[node name="PanelContainer" type="PanelContainer" parent="Camera2D/Control"]
+offset_left = 415.0
+offset_top = -300.0
+offset_right = 546.0
+offset_bottom = -257.0
+size_flags_horizontal = 10
+size_flags_vertical = 2
+script = ExtResource("15_xw4qs")
+metadata/_edit_use_anchors_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="Camera2D/Control/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Label" type="Label" parent="Camera2D/Control/PanelContainer/MarginContainer"]
+layout_mode = 2
+text = "Balance: $1.00
+"
+
+[node name="NPC2" type="CharacterBody2D" parent="."]
+position = Vector2(1767, 615)
+script = ExtResource("13_xqf4k")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="NPC2"]
+position = Vector2(-0.375, 2.625)
+scale = Vector2(2.67788, 2.67788)
+sprite_frames = SubResource("SpriteFrames_yhfdl")
+animation = &"idle_still_north"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NPC2"]
+shape = SubResource("RectangleShape2D_ymrum")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="NPC2"]
+debug_enabled = true
+
+[node name="RandomLookTimer" type="Timer" parent="NPC2"]
+
+[node name="TargetWalkTimer" type="Timer" parent="NPC2"]
+wait_time = 5.0
+
+[node name="NPC3" type="CharacterBody2D" parent="."]
+position = Vector2(2644, 47)
+script = ExtResource("13_xqf4k")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="NPC3"]
+position = Vector2(-0.375, 2.625)
+scale = Vector2(2.67788, 2.67788)
+sprite_frames = SubResource("SpriteFrames_yhfdl")
+animation = &"idle_still_north"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NPC3"]
+shape = SubResource("RectangleShape2D_ymrum")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="NPC3"]
+debug_enabled = true
+
+[node name="RandomLookTimer" type="Timer" parent="NPC3"]
+
+[node name="TargetWalkTimer" type="Timer" parent="NPC3"]
+wait_time = 5.0
+
+[node name="NPC4" type="CharacterBody2D" parent="."]
+position = Vector2(1487, 123)
+script = ExtResource("13_xqf4k")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="NPC4"]
+position = Vector2(-0.375, 2.625)
+scale = Vector2(2.67788, 2.67788)
+sprite_frames = SubResource("SpriteFrames_yhfdl")
+animation = &"idle_still_north"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NPC4"]
+shape = SubResource("RectangleShape2D_ymrum")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="NPC4"]
+debug_enabled = true
+
+[node name="RandomLookTimer" type="Timer" parent="NPC4"]
+
+[node name="TargetWalkTimer" type="Timer" parent="NPC4"]
+wait_time = 5.0
+
+[node name="NPC5" type="CharacterBody2D" parent="."]
+position = Vector2(1275, 972)
+script = ExtResource("13_xqf4k")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="NPC5"]
+position = Vector2(-0.375, 2.625)
+scale = Vector2(2.67788, 2.67788)
+sprite_frames = SubResource("SpriteFrames_yhfdl")
+animation = &"idle_still_north"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NPC5"]
+shape = SubResource("RectangleShape2D_ymrum")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="NPC5"]
+debug_enabled = true
+
+[node name="RandomLookTimer" type="Timer" parent="NPC5"]
+
+[node name="TargetWalkTimer" type="Timer" parent="NPC5"]
+wait_time = 5.0
+
+[node name="NPC6" type="CharacterBody2D" parent="."]
+position = Vector2(2009, 79)
+script = ExtResource("13_xqf4k")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="NPC6"]
+position = Vector2(-0.375, 2.625)
+scale = Vector2(2.67788, 2.67788)
+sprite_frames = SubResource("SpriteFrames_yhfdl")
+animation = &"idle_still_north"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NPC6"]
+shape = SubResource("RectangleShape2D_ymrum")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="NPC6"]
+debug_enabled = true
+
+[node name="RandomLookTimer" type="Timer" parent="NPC6"]
+
+[node name="TargetWalkTimer" type="Timer" parent="NPC6"]
+wait_time = 5.0
+
+[node name="NPC7" type="CharacterBody2D" parent="."]
+position = Vector2(2598, 960)
+script = ExtResource("13_xqf4k")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="NPC7"]
+position = Vector2(-0.375, 2.625)
+scale = Vector2(2.67788, 2.67788)
+sprite_frames = SubResource("SpriteFrames_yhfdl")
+animation = &"idle_still_north"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NPC7"]
+shape = SubResource("RectangleShape2D_ymrum")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="NPC7"]
+debug_enabled = true
+
+[node name="RandomLookTimer" type="Timer" parent="NPC7"]
+
+[node name="TargetWalkTimer" type="Timer" parent="NPC7"]
+wait_time = 5.0
+
+[connection signal="purchase" from="Sugar Rush" to="Camera2D/Control/PanelContainer" method="_on_sugar_rush_purchase"]
 [connection signal="navigation_finished" from="NPC1/NavigationAgent2D" to="NPC1" method="_on_navigation_agent_2d_navigation_finished"]
 [connection signal="target_reached" from="NPC1/NavigationAgent2D" to="NPC1" method="_on_navigation_agent_2d_target_reached"]
 [connection signal="timeout" from="NPC1/RandomLookTimer" to="NPC1" method="_on_random_look_timer_timeout"]
 [connection signal="timeout" from="NPC1/TargetWalkTimer" to="NPC1" method="_on_target_walk_timer_timeout"]
+[connection signal="purchase" from="Sugar Rush2" to="Camera2D/Control/PanelContainer" method="_on_sugar_rush_purchase"]
+[connection signal="purchase" from="Sugar Rush3" to="Camera2D/Control/PanelContainer" method="_on_sugar_rush_purchase"]
+[connection signal="purchase" from="Sugar Rush4" to="Camera2D/Control/PanelContainer" method="_on_sugar_rush_purchase"]
+[connection signal="purchase" from="Sugar Rush5" to="Camera2D/Control/PanelContainer" method="_on_sugar_rush_purchase"]
+[connection signal="navigation_finished" from="NPC2/NavigationAgent2D" to="NPC2" method="_on_navigation_agent_2d_navigation_finished"]
+[connection signal="target_reached" from="NPC2/NavigationAgent2D" to="NPC2" method="_on_navigation_agent_2d_target_reached"]
+[connection signal="timeout" from="NPC2/RandomLookTimer" to="NPC2" method="_on_random_look_timer_timeout"]
+[connection signal="timeout" from="NPC2/TargetWalkTimer" to="NPC2" method="_on_target_walk_timer_timeout"]
+[connection signal="navigation_finished" from="NPC3/NavigationAgent2D" to="NPC3" method="_on_navigation_agent_2d_navigation_finished"]
+[connection signal="target_reached" from="NPC3/NavigationAgent2D" to="NPC3" method="_on_navigation_agent_2d_target_reached"]
+[connection signal="timeout" from="NPC3/RandomLookTimer" to="NPC3" method="_on_random_look_timer_timeout"]
+[connection signal="timeout" from="NPC3/TargetWalkTimer" to="NPC3" method="_on_target_walk_timer_timeout"]
+[connection signal="navigation_finished" from="NPC4/NavigationAgent2D" to="NPC4" method="_on_navigation_agent_2d_navigation_finished"]
+[connection signal="target_reached" from="NPC4/NavigationAgent2D" to="NPC4" method="_on_navigation_agent_2d_target_reached"]
+[connection signal="timeout" from="NPC4/RandomLookTimer" to="NPC4" method="_on_random_look_timer_timeout"]
+[connection signal="timeout" from="NPC4/TargetWalkTimer" to="NPC4" method="_on_target_walk_timer_timeout"]
+[connection signal="navigation_finished" from="NPC5/NavigationAgent2D" to="NPC5" method="_on_navigation_agent_2d_navigation_finished"]
+[connection signal="target_reached" from="NPC5/NavigationAgent2D" to="NPC5" method="_on_navigation_agent_2d_target_reached"]
+[connection signal="timeout" from="NPC5/RandomLookTimer" to="NPC5" method="_on_random_look_timer_timeout"]
+[connection signal="timeout" from="NPC5/TargetWalkTimer" to="NPC5" method="_on_target_walk_timer_timeout"]
+[connection signal="navigation_finished" from="NPC6/NavigationAgent2D" to="NPC6" method="_on_navigation_agent_2d_navigation_finished"]
+[connection signal="target_reached" from="NPC6/NavigationAgent2D" to="NPC6" method="_on_navigation_agent_2d_target_reached"]
+[connection signal="timeout" from="NPC6/RandomLookTimer" to="NPC6" method="_on_random_look_timer_timeout"]
+[connection signal="timeout" from="NPC6/TargetWalkTimer" to="NPC6" method="_on_target_walk_timer_timeout"]
+[connection signal="navigation_finished" from="NPC7/NavigationAgent2D" to="NPC7" method="_on_navigation_agent_2d_navigation_finished"]
+[connection signal="target_reached" from="NPC7/NavigationAgent2D" to="NPC7" method="_on_navigation_agent_2d_target_reached"]
+[connection signal="timeout" from="NPC7/RandomLookTimer" to="NPC7" method="_on_random_look_timer_timeout"]
+[connection signal="timeout" from="NPC7/TargetWalkTimer" to="NPC7" method="_on_target_walk_timer_timeout"]
