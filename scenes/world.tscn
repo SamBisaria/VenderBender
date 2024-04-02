@@ -1,4 +1,4 @@
-[gd_scene load_steps=61 format=3 uid="uid://dhjk7o4bcbu6b"]
+[gd_scene load_steps=59 format=3 uid="uid://dhjk7o4bcbu6b"]
 
 [ext_resource type="Texture2D" uid="uid://bp77ubst64sy2" path="res://art/tilesets/Outside_A1.png" id="1_m7rqj"]
 [ext_resource type="Texture2D" uid="uid://8frvv60wabnj" path="res://art/tilesets/Outside_A2.png" id="2_vv2v2"]
@@ -11,11 +11,9 @@
 [ext_resource type="Texture2D" uid="uid://dwifkefk3h8md" path="res://art/tilesets/Outside_C.png" id="7_ojnay"]
 [ext_resource type="Texture2D" uid="uid://bnfppkixpgmvn" path="res://art/tilesets/Outside_D.png" id="8_0yyvy"]
 [ext_resource type="Script" path="res://scripts/camera.gd" id="9_aj83g"]
-[ext_resource type="AudioStream" uid="uid://bqplu6bfo8dvw" path="res://art/audio/titleScreen.wav" id="10_pc1bc"]
 [ext_resource type="Texture2D" uid="uid://d2aufdtu4tg6a" path="res://art/characters/Civilian1_Idle.png" id="11_ghkk8"]
 [ext_resource type="Texture2D" uid="uid://dflrhec1yccdy" path="res://art/characters/!Policedrone.png" id="12_7wlnb"]
 [ext_resource type="Script" path="res://scripts/robot.gd" id="12_egxta"]
-[ext_resource type="AudioStream" uid="uid://mia3neegswiy" path="res://art/audio/vendingAmbient.wav" id="14_07vxu"]
 [ext_resource type="Texture2D" uid="uid://tf25iapt1caf" path="res://art/characters/vending_machine_1.png" id="15_uwmjv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_l4krs"]
@@ -15306,7 +15304,6 @@ layer_2/tile_data = PackedInt32Array(-983044, 786439, 7, -917508, 786439, 8, -85
 script = ExtResource("9_aj83g")
 
 [node name="BackgroundAudio" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("10_pc1bc")
 autoplay = true
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
@@ -15340,7 +15337,6 @@ disabled = true
 position = Vector2(5, -130)
 
 [node name="ProximityAudio" type="AudioStreamPlayer2D" parent="Vending Machine"]
-stream = ExtResource("14_07vxu")
 autoplay = true
 max_distance = 1000.0
 

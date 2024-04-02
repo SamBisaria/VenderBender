@@ -1,0 +1,72 @@
+[gd_scene load_steps=8 format=3 uid="uid://cyklbdyatd3jf"]
+
+[ext_resource type="Script" path="res://scripts/TitleScreen.gd" id="1_18sqv"]
+[ext_resource type="Texture2D" uid="uid://ddwhxrxcid2qa" path="res://art/titlescreen/signal-2024-03-30-180252_002.jpeg" id="2_1vrll"]
+[ext_resource type="AudioStream" uid="uid://q4ry8625j72r" path="res://art/audio/titleScreen.wav" id="2_87n66"]
+
+[sub_resource type="Theme" id="Theme_ebk8d"]
+default_font_size = 50
+
+[sub_resource type="SystemFont" id="SystemFont_1cxib"]
+font_weight = 425
+
+[sub_resource type="Theme" id="Theme_pt60q"]
+default_font = SubResource("SystemFont_1cxib")
+default_font_size = 100
+
+[sub_resource type="Theme" id="Theme_04ywr"]
+default_font_size = 40
+
+[node name="TitleScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_18sqv")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1160.0
+offset_bottom = 640.0
+texture = ExtResource("2_1vrll")
+expand_mode = 2
+
+[node name="StartButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+offset_left = 430.0
+offset_top = 353.0
+offset_right = 732.0
+offset_bottom = 472.0
+theme = SubResource("Theme_ebk8d")
+text = "Start"
+icon_alignment = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_87n66")
+autoplay = true
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 77.0
+offset_top = 28.0
+offset_right = 1098.0
+offset_bottom = 371.0
+theme = SubResource("Theme_pt60q")
+text = "Vender Bender"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 432.0
+offset_top = 508.0
+offset_right = 738.0
+offset_bottom = 600.0
+theme = SubResource("Theme_04ywr")
+text = "How to Play"
+
+[connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
