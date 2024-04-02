@@ -1,0 +1,56 @@
+[gd_scene load_steps=5 format=3 uid="uid://dshoab5hxk13c"]
+
+[ext_resource type="Script" path="res://scripts/howtoplay.gd" id="1_wxwsc"]
+[ext_resource type="Texture2D" uid="uid://brss6se4h55bi" path="res://art/titlescreen/pixel-city-thumb.jpg" id="2_003hr"]
+
+[sub_resource type="Theme" id="Theme_8c25m"]
+default_font_size = 40
+/styles/something = null
+
+[sub_resource type="Theme" id="Theme_udbyi"]
+default_font_size = 50
+
+[node name="howtoplay" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wxwsc")
+metadata/infoscreen = false
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1150.0
+offset_bottom = 636.0
+texture = ExtResource("2_003hr")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.035
+anchor_bottom = 0.018
+offset_left = 232.0
+offset_top = 85.0
+offset_right = 865.68
+offset_bottom = 520.336
+theme = SubResource("Theme_8c25m")
+text = "Instructions:
+Click on the Vending Machines to see through them. Sell cans to make as much money as Possible.
+
+Move around the map with arrow keys."
+autowrap_mode = 3
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 462.0
+offset_top = 475.0
+offset_right = 651.0
+offset_bottom = 573.0
+theme = SubResource("Theme_udbyi")
+text = "Back
+"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

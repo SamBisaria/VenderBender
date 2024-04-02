@@ -60325,7 +60325,6 @@ text = "Balance: $1.00
 "
 
 [node name="BackgroundAudio" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("10_pc1bc")
 autoplay = true
 
 [node name="Sugar Rush" type="CharacterBody2D" parent="." groups=["vending_machines"]]
@@ -60397,6 +60396,13 @@ offset_top = -12808.0
 offset_right = 21571.0
 offset_bottom = 12420.0
 texture = SubResource("GradientTexture2D_diteq")
+
+[node name="Vending Machine" type="CharacterBody2D" parent="."]
+position = Vector2(5, -130)
+
+[node name="ProximityAudio" type="AudioStreamPlayer2D" parent="Vending Machine"]
+autoplay = true
+max_distance = 1000.0
 
 [connection signal="purchase" from="Sugar Rush" to="Camera2D/PanelContainer" method="_on_sugar_rush_purchase"]
 [connection signal="navigation_finished" from="NPC1/NavigationAgent2D" to="NPC1" method="_on_navigation_agent_2d_navigation_finished"]
