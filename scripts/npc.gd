@@ -55,7 +55,9 @@ func _on_navigation_agent_2d_target_reached():
 func _on_navigation_agent_2d_navigation_finished():
 	if target_vending_machine != null:
 		target_vending_machine.queue_order()
-	post_purchase()
+		post_purchase()
+		target_vending_machine = null
+		
 
 func _ready() -> void:
 	ani_sprite.play(idle_animations[randi_range(0, idle_animations.size() - 1)])
@@ -71,7 +73,6 @@ func _on_random_look_timer_timeout():
 	if state == NPC.State.IDLE:
 		var animation: String = idle_animations[randi_range(0, idle_animations.size() - 1)]
 		ani_sprite.set_animation(animation)
-		ani_sprite.play()
 	random_look_timer.wait_time = randf_range(3, 7)
 	random_look_timer.start()
 	
@@ -87,8 +88,11 @@ func walk() -> void:
 
 # Makes the NPC wander after buying something
 func post_purchase():
+	ani_sprite.set_animation("idle_north")
 	state = NPC.State.WANDERING
 	nav_agent.target_position = position + Vector2(400, -20)
+	target_walk_timer.wait_time = randf_range(45, 60)
+	target_walk_timer.start()
 
 
 # Go to vending machine when timer is up # Note that if the NPC can't arrive in time this func

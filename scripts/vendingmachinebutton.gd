@@ -1,7 +1,8 @@
 extends TextureButton
 
 var index: int
+var window_reference
 
 
 func _on_pressed():
-	pass # Replace with function body.
+	window_reference.set_selected(index)

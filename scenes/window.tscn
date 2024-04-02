@@ -1,12 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://5m6i1rg61cv2"]
+[gd_scene load_steps=4 format=3 uid="uid://5m6i1rg61cv2"]
 
 [ext_resource type="Script" path="res://scripts/window.gd" id="1_t2ow3"]
 [ext_resource type="Script" path="res://scripts/numpadbutton.gd" id="2_vlwxc"]
 
+[sub_resource type="SystemFont" id="SystemFont_7lycd"]
+
 [node name="Window" type="Window"]
 title = "Test Window"
 position = Vector2i(0, 36)
-size = Vector2i(191, 356)
+size = Vector2i(398, 397)
 wrap_controls = true
 unresizable = true
 script = ExtResource("1_t2ow3")
@@ -58,13 +60,23 @@ horizontal_alignment = 1
 
 [node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer/HSplitContainer/VBoxContainer/MarginContainer/PanelContainer/CustomerWants"]
 layout_mode = 2
+theme_override_constants/margin_right = 0
 theme_override_constants/margin_bottom = 5
 
-[node name="CustomWantsPicture" type="TextureRect" parent="VBoxContainer/HSplitContainer/VBoxContainer/MarginContainer/PanelContainer/CustomerWants/MarginContainer2"]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HSplitContainer/VBoxContainer/MarginContainer/PanelContainer/CustomerWants/MarginContainer2"]
+layout_mode = 2
+
+[node name="CustomWantsPicture" type="TextureRect" parent="VBoxContainer/HSplitContainer/VBoxContainer/MarginContainer/PanelContainer/CustomerWants/MarginContainer2/HBoxContainer"]
 custom_minimum_size = Vector2(72, 64)
 layout_mode = 2
 expand_mode = 2
 stretch_mode = 5
+
+[node name="QueueSizeLabel" type="Label" parent="VBoxContainer/HSplitContainer/VBoxContainer/MarginContainer/PanelContainer/CustomerWants/MarginContainer2/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = SubResource("SystemFont_7lycd")
+theme_override_font_sizes/font_size = 10
+text = "Queue Size: 1"
 
 [node name="PanelContainer2" type="PanelContainer" parent="VBoxContainer/HSplitContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 200)
@@ -106,61 +118,73 @@ columns = 3
 [node name="1" type="Button" parent="VBoxContainer/HSplitContainer/VBoxContainer/PanelContainer2/ChargePrice/CenterContainer/GridContainer"]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
+text = "1"
 script = ExtResource("2_vlwxc")
 
 [node name="2" type="Button" parent="VBoxContainer/HSplitContainer/VBoxContainer/PanelContainer2/ChargePrice/CenterContainer/GridContainer"]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
+text = "2"
 script = ExtResource("2_vlwxc")
 
 [node name="3" type="Button" parent="VBoxContainer/HSplitContainer/VBoxContainer/PanelContainer2/ChargePrice/CenterContainer/GridContainer"]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
+text = "3"
 script = ExtResource("2_vlwxc")
 
 [node name="4" type="Button" parent="VBoxContainer/HSplitContainer/VBoxContainer/PanelContainer2/ChargePrice/CenterContainer/GridContainer"]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
+text = "4"
 script = ExtResource("2_vlwxc")
 
 [node name="5" type="Button" parent="VBoxContainer/HSplitContainer/VBoxContainer/PanelContainer2/ChargePrice/CenterContainer/GridContainer"]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
+text = "5"
 script = ExtResource("2_vlwxc")
 
 [node name="6" type="Button" parent="VBoxContainer/HSplitContainer/VBoxContainer/PanelContainer2/ChargePrice/CenterContainer/GridContainer"]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
+text = "6"
 script = ExtResource("2_vlwxc")
 
 [node name="7" type="Button" parent="VBoxContainer/HSplitContainer/VBoxContainer/PanelContainer2/ChargePrice/CenterContainer/GridContainer"]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
+text = "7"
 script = ExtResource("2_vlwxc")
 
 [node name="8" type="Button" parent="VBoxContainer/HSplitContainer/VBoxContainer/PanelContainer2/ChargePrice/CenterContainer/GridContainer"]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
+text = "8"
 script = ExtResource("2_vlwxc")
 
 [node name="9" type="Button" parent="VBoxContainer/HSplitContainer/VBoxContainer/PanelContainer2/ChargePrice/CenterContainer/GridContainer"]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
+text = "9"
 script = ExtResource("2_vlwxc")
 
 [node name="0" type="Button" parent="VBoxContainer/HSplitContainer/VBoxContainer/PanelContainer2/ChargePrice/CenterContainer/GridContainer"]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
+text = "0"
 script = ExtResource("2_vlwxc")
 
 [node name="dot" type="Button" parent="VBoxContainer/HSplitContainer/VBoxContainer/PanelContainer2/ChargePrice/CenterContainer/GridContainer"]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
+text = "."
 script = ExtResource("2_vlwxc")
 
 [node name="backspace" type="Button" parent="VBoxContainer/HSplitContainer/VBoxContainer/PanelContainer2/ChargePrice/CenterContainer/GridContainer"]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
+text = "⌫"
 script = ExtResource("2_vlwxc")
 
 [node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]

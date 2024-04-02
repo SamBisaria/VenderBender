@@ -7,6 +7,7 @@ var selected_item_index: int
 var buttons_container: GridContainer
 var customer_order_preview: TextureRect
 var charge_price_box: TextEdit
+var queue_size_label: Label
 var audio
 
 var vending_button: PackedScene = preload("res://scenes/vending_button.tscn")
@@ -15,6 +16,7 @@ func _ready():
 	buttons_container = find_child("VendingMachineItems")
 	customer_order_preview = find_child("CustomWantsPicture")
 	charge_price_box = find_child("ChargePriceInput")
+	queue_size_label = find_child("QueueSizeLabel")
 	create_buttons(items.size())
 
 
@@ -22,6 +24,11 @@ func _process(delta: float) -> void:
 	var item_containers = buttons_container.get_children()
 	for i in range(len(item_containers)):
 		var item_container = item_containers[i]
+		var button: TextureButton = item_container.find_child("TextureButton")
+		#if i == selected_item_index:
+			#button.disabled = true
+		#else:
+			#button.disabled = false
 		var fill_bar = item_container.find_child("ProgressBar")
 		fill_bar.set_value(items[i].stock)
 	
@@ -30,6 +37,7 @@ func _process(delta: float) -> void:
 	else:
 		customer_order_preview.texture = null
 		
+	queue_size_label.text = "Queue Size: " + str(queue.size())
 	
 
 
@@ -44,6 +52,7 @@ func create_buttons(button_count):
 		button = item_container.find_child("TextureButton")
 		button.index = i
 		button.texture_normal = load(items[i].imgSrc)
+		button.window_reference = self
 		fill_bar = item_container.find_child("ProgressBar")
 		fill_bar.set_value(items[i].stock)
 		fill_bar.set_max(items[i].stockMax)
@@ -100,7 +109,9 @@ func handle_purchase(selected_item) -> float:
 	queue.pop_front()
 	return you_charged - company_expects
 		
-	
+func set_selected(index: int) -> void:
+	print(index)
+	selected_item_index = index
 	
 func play_error_sound() -> void:
 	audio.play()
