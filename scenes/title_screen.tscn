@@ -1,11 +1,18 @@
-[gd_scene load_steps=8 format=3 uid="uid://co64ft6p3faj7"]
+[gd_scene load_steps=12 format=3 uid="uid://co64ft6p3faj7"]
 
 [ext_resource type="Script" path="res://scripts/TitleScreen.gd" id="1_18sqv"]
 [ext_resource type="Texture2D" uid="uid://ddwhxrxcid2qa" path="res://art/titlescreen/signal-2024-03-30-180252_002.jpeg" id="2_1vrll"]
-[ext_resource type="AudioStream" uid="uid://dl3la35e2ldow" path="res://art/audio/titleScreen.wav" id="2_87n66"]
+[ext_resource type="AudioStream" uid="uid://c7n71kjch3iof" path="res://art/audio/titleScreen.wav" id="2_87n66"]
 
 [sub_resource type="Theme" id="Theme_ebk8d"]
 default_font_size = 50
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rb1uu"]
+bg_color = Color(0.0627451, 0.27451, 0.352941, 1)
+shadow_size = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ae4os"]
+bg_color = Color(0.380392, 0.101961, 0.247059, 1)
 
 [sub_resource type="SystemFont" id="SystemFont_1cxib"]
 font_weight = 425
@@ -16,6 +23,12 @@ default_font_size = 100
 
 [sub_resource type="Theme" id="Theme_04ywr"]
 default_font_size = 40
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xb6s4"]
+bg_color = Color(0.333333, 0.290196, 0.0784314, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lfnth"]
+bg_color = Color(0.317647, 0.219608, 0.403922, 1)
 
 [node name="TitleScreen" type="Control"]
 layout_mode = 3
@@ -41,6 +54,8 @@ offset_top = 353.0
 offset_right = 732.0
 offset_bottom = 472.0
 theme = SubResource("Theme_ebk8d")
+theme_override_styles/normal = SubResource("StyleBoxFlat_rb1uu")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ae4os")
 text = "Start"
 icon_alignment = 1
 
@@ -66,6 +81,8 @@ offset_top = 508.0
 offset_right = 738.0
 offset_bottom = 600.0
 theme = SubResource("Theme_04ywr")
+theme_override_styles/normal = SubResource("StyleBoxFlat_xb6s4")
+theme_override_styles/hover = SubResource("StyleBoxFlat_lfnth")
 text = "How to Play"
 
 [connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
